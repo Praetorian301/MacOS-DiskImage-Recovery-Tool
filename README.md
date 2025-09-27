@@ -3,14 +3,11 @@ Sparsebundle & Disk Image Recovery Tool
 
 Brief Summary
 ------------
-A lightweight macOS utility written entirely using Python, the script attempts to unlock MacOS disk images
-including (`*.sparsebundle`, `*.dmg`, `*.sparseimage`) using candidate passwords
-from plain `.txt` wordlist files. Intended for legitimate data recovery
-and authorized digital-forensics work. 
+A lightweight macOS utility written in Python, this script attempts to unlock macOS disk images (*.sparsebundle, *.dmg, *.sparseimage) using candidate passwords from plain .txt wordlist files. It is intended for legitimate data recovery and authorized digital-forensics work when an image’s password has been forgotten. The tool automates hdiutil attach attempts, provides a live progress dashboard, and includes helper commands to avoid attach/detach conflicts. Depending on wordlist size and your machine, it may recover access in a few hours for small lists, but large wordlists can take much longer.
 
-Logic Overview
+Process Overview
 --------------------
-- Scans the repository folder for supported disk images and `*.txt` wordlists.
+- Auto scans the repository folder for supported disk images and `*.txt` wordlists.
 - For each image it attempts to attach the image using `hdiutil`, sending
   candidate passwords to `hdiutil` via stdin.
 - Shows a live progress dashboard (checked count, rate, ETA) and accepts
@@ -18,7 +15,7 @@ Logic Overview
 - Includes a helper `clean` command to detach currently mounted disks to
   avoid attach/detach conflicts.
 
-Key script logic
+Script Logic
 -----------------------------
 1. Discovery — find disk images in the repo root and `*.txt` wordlists (Mode 1).
 2. Order — present an order of images (auto or manual reorder).
@@ -32,7 +29,7 @@ Key script logic
    - Type `q` + Enter to quit the run.
 5. Cleanup — on success or exit the script attempts to detach mounted volumes and runs a detach sweep.
 
-Quick start (3 steps)
+Quick Start (3 steps)
 ---------------------
 1) Add your files:
    - Put your disk images in the repo root (examples: test.sparsebundle, test.dmg).
