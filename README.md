@@ -5,6 +5,28 @@ Brief Summary
 ------------
 A lightweight macOS utility written in Python, this script attempts to unlock macOS disk images (*.sparsebundle, *.dmg, *.sparseimage) using candidate passwords from plain .txt wordlist files. It is intended for legitimate data recovery and authorized digital-forensics work when an image’s password has been forgotten. The tool automates hdiutil attach attempts, provides a live progress dashboard, and includes helper commands to avoid attach & detach conflicts. Depending on wordlist size and your machine, it may recover access in a few hours for small lists, but large wordlists can take longer.
 
+Run Script (3 steps)
+---------------------
+1) Add your files:
+   - Put your disk images in the repo root (with: test.sparsebundle, test.dmg).
+   - Put `.txt` wordlists in the same folder (Mode 1 auto-discovers them).
+   - Use public, legal wordlists (e.g., SecLists, Weakpass) — only use lists you are allowed to use.
+
+2) Make the `clean` helper available (recommended):
+   - Temporary alias (paste in terminal):
+     alias clean="hdiutil info | grep '/dev/disk' | awk '{print \$1}' | xargs -n1 sudo hdiutil detach -force"
+
+   - Dry run (see devices that would be detached):
+     hdiutil info | grep '/dev/disk' | awk '{print $1}'
+
+3) From the repository root:
+   `chmod +x ./cracker.py` then run
+   `ls -l ./cracker.py`
+
+   Run the tool:
+     `clean` then run
+     `python3 cracker.py`
+
 Process Overview
 --------------------
 - Auto scans the repository folder for supported disk images and `*.txt` wordlists.
@@ -28,29 +50,6 @@ Script Logic
    - Type `b` + Enter to skip current image/bundle.
    - Type `q` + Enter to quit the run.
 5. Cleanup — on success or exit the script attempts to detach mounted volumes and runs a detach sweep.
-
-Quick Start (3 steps)
----------------------
-1) Add your files:
-   - Put your disk images in the repo root (examples: test.sparsebundle, test.dmg).
-   - Put `.txt` wordlists in the same folder (Mode 1 auto-discovers them).
-   - Use public, legal wordlists (e.g., SecLists, Weakpass) — only use lists you are allowed to use.
-
-2) Make the `clean` helper available (recommended):
-   - Temporary alias (paste in terminal):
-     alias clean="hdiutil info | grep '/dev/disk' | awk '{print \$1}' | xargs -n1 sudo hdiutil detach -force"
-
-   - Dry run (see devices that would be detached):
-     hdiutil info | grep '/dev/disk' | awk '{print $1}'
-
-3) From the repository root:
-   `chmod +x ./cracker.py`
-   `ls -l ./cracker.py`
-
-   Run the tool:
-   From the repository root:
-     `clean` then
-     `python3 cracker.py`
 
 Troubleshooting
 ---------------
