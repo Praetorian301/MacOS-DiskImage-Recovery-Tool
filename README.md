@@ -3,7 +3,7 @@ Sparsebundle & Disk Image Recovery Tool
 
 Brief Summary
 ------------
-A lightweight macOS utility written in Python, this script attempts to unlock macOS disk images (*.sparsebundle, *.dmg, *.sparseimage) using candidate passwords from plain .txt wordlist files. It is intended for legitimate data recovery and authorized digital-forensics work when an image’s password has been forgotten. The tool automates hdiutil attach attempts, provides a live progress dashboard, and includes helper commands to avoid attach/detach conflicts. Depending on wordlist size and your machine, it may recover access in a few hours for small lists, but large wordlists can take much longer.
+A lightweight macOS utility written in Python, this script attempts to unlock macOS disk images (*.sparsebundle, *.dmg, *.sparseimage) using candidate passwords from plain .txt wordlist files. It is intended for legitimate data recovery and authorized digital-forensics work when an image’s password has been forgotten. The tool automates hdiutil attach attempts, provides a live progress dashboard, and includes helper commands to avoid attach & detach conflicts. Depending on wordlist size and your machine, it may recover access in a few hours for small lists, but large wordlists can take longer.
 
 Process Overview
 --------------------
@@ -43,15 +43,6 @@ Quick Start (3 steps)
    - Dry run (see devices that would be detached):
      hdiutil info | grep '/dev/disk' | awk '{print $1}'
 
-   - Optional safer function (add to ~/.bashrc or ~/.zshrc):
-     clean() {
-       echo "Devices to detach:"
-       hdiutil info | grep '/dev/disk' | awk '{print $1}'
-       echo
-       echo "Detaching (you may be prompted for your password)..."
-       hdiutil info | grep '/dev/disk' | awk '{print $1}' | xargs -n1 sudo hdiutil detach -force
-     }
-
 3) Run the tool:
    From the repository root:
      clean
@@ -77,7 +68,7 @@ Troubleshooting
 
 Credits
 -------
-Small public wordlists may be included for convenience. Credit: SecLists, Weakpass, and other open sources.
+Download public wordlists https://weakpass.com and from https://github.com/danielmiessler/SecLists/
 
 Warnings & legal
 ----------------
