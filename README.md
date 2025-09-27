@@ -43,10 +43,14 @@ Quick Start (3 steps)
    - Dry run (see devices that would be detached):
      hdiutil info | grep '/dev/disk' | awk '{print $1}'
 
-3) Run the tool:
+3) From the repository root:
+   `chmod +x ./cracker.py`
+   `ls -l ./cracker.py`
+
+   Run the tool:
    From the repository root:
-     clean
-     python3 cracker.py
+     `clean` then
+     `python3 cracker.py`
 
 Troubleshooting
 ---------------
