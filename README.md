@@ -48,11 +48,6 @@ Quick Start (3 steps)
      clean
      python3 cracker.py
 
-Where to put wordlists and bundles
----------------------------------
-- Disk images: repo root (same folder as the script).
-- Wordlists: `.txt` files in the repo root. Mode 1 detects `*.txt` automatically.
-
 Troubleshooting
 ---------------
 - “No `.sparsebundle` files found” — check that the images are in the repo root and named correctly.
