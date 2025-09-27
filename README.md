@@ -60,9 +60,9 @@ Troubleshooting
 - If a device won’t detach, check which process is using it or reboot.
 - If `hdiutil` attach behaves differently for a specific image type, test `hdiutil` manually.
 
-Credits
+Textfile Downloads
 -------
-Download public wordlists https://weakpass.com and from https://github.com/danielmiessler/SecLists/
+Download public `.txt` wordlists https://weakpass.com and from https://github.com/danielmiessler/SecLists/
 
 Warnings & legal
 ----------------
