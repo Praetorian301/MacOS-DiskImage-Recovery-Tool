@@ -1,14 +1,14 @@
-Sparsebundle / Disk Image Recovery Tool
+Sparsebundle & Disk Image Recovery Tool
 ======================================
 
-What this is
+Brief Summary
 ------------
-A small macOS utility (Python 3) that attempts to unlock disk images
-(`*.sparsebundle`, `*.dmg`, `*.sparseimage`) using candidate passwords
+A lightweight macOS utility written entirely using Python, the script attempts to unlock MacOS disk images
+including (`*.sparsebundle`, `*.dmg`, `*.sparseimage`) using candidate passwords
 from plain `.txt` wordlist files. Intended for legitimate data recovery
-and authorized digital-forensics work.
+and authorized digital-forensics work. 
 
-What it does (brief)
+Logic Overview
 --------------------
 - Scans the repository folder for supported disk images and `*.txt` wordlists.
 - For each image it attempts to attach the image using `hdiutil`, sending
@@ -18,7 +18,7 @@ What it does (brief)
 - Includes a helper `clean` command to detach currently mounted disks to
   avoid attach/detach conflicts.
 
-Key script logic (high level)
+Key script logic
 -----------------------------
 1. Discovery — find disk images in the repo root and `*.txt` wordlists (Mode 1).
 2. Order — present an order of images (auto or manual reorder).
@@ -60,11 +60,6 @@ Quick start (3 steps)
      clean
      python3 cracker.py
 
-   Or run both:
-     clean && python3 cracker.py
-     # or if using the simplified name:
-     clean && python3 cracker_mode1_only.py
-
 Where to put wordlists and bundles
 ---------------------------------
 - Disk images: repo root (same folder as the script).
@@ -83,19 +78,6 @@ Troubleshooting
 - If a device won’t detach, check which process is using it or reboot.
 - If `hdiutil` attach behaves differently for a specific image type, test `hdiutil` manually.
 
-Safety, size & git advice
--------------------------
-- Do NOT commit large binary images or private data. Add this to `.gitignore`:
-  *.dmg
-  *.sparsebundle
-  *.sparseimage
-  .DS_Store
-  .venv/
-  __pycache__/
-
-- Prefer including a small generator script (make_test_bundles.sh) to create demo images locally rather than storing them in Git history.
-- If you accidentally push large files, remove them from history with `git filter-repo` or BFG and consider rotating any exposed credentials.
-
 Credits
 -------
 Small public wordlists may be included for convenience. Credit: SecLists, Weakpass, and other open sources.
@@ -105,10 +87,3 @@ Warnings & legal
 - Authorized use only: run this tool only on images you own or have explicit permission to test.
 - `clean` uses `sudo` and forcibly detaches volumes — use with care.
 - Unauthorized access to systems or data is illegal.
-
-Want extras?
-------------
-If you want, I can:
-- provide a `make_test_bundles.sh` generator script (recommended),
-- add a ready-to-paste `.gitignore` into the repo,
-- or produce a minimal `README.md` version for GitHub display.
