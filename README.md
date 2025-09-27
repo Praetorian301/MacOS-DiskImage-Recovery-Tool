@@ -13,11 +13,12 @@ Run Script (3 steps)
    - Use public, legal wordlists (e.g., SecLists, Weakpass) — only use lists you are allowed to use.
 
 2) Make the `clean` helper available (recommended):
-   - Temporary alias (paste in terminal):
-     alias clean="hdiutil info | grep '/dev/disk' | awk '{print \$1}' | xargs -n1 sudo hdiutil detach -force"
+   - Temporary alias (paste command in terminal):
+     
+     `alias clean="hdiutil info | grep '/dev/disk' | awk '{print \$1}' | xargs -n1 sudo hdiutil detach -force"`
 
    - Dry run (see devices that would be detached):
-     hdiutil info | grep '/dev/disk' | awk '{print $1}'
+     `hdiutil info | grep '/dev/disk' | awk '{print $1}'`
 
 3) From the repository root:
    `chmod +x ./cracker.py` then run
