@@ -24,7 +24,7 @@ Run Script (3 steps)
    `chmod +x ./cracker.py` then run
    `ls -l ./cracker.py`
 
-   Run the tool:
+   Run the commands:
      `clean` then run
      `python3 cracker.py`
 
