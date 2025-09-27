@@ -1,4 +1,4 @@
-Sparsebundle & Disk Image Recovery Tool
+Disk Image & Sparsebundle Recovery Tool
 ======================================
 
 Brief Summary
@@ -52,12 +52,6 @@ Where to put wordlists and bundles
 ---------------------------------
 - Disk images: repo root (same folder as the script).
 - Wordlists: `.txt` files in the repo root. Mode 1 detects `*.txt` automatically.
-
-What to expect / controls
--------------------------
-- The script shows a progress bar and live dashboard with ETA.
-- Large wordlists may take a long time; the script will prompt if a file looks slow.
-- Controls while running: `s` (skip file), `b` (skip image), `q` (quit) — press Enter after the key.
 
 Troubleshooting
 ---------------
