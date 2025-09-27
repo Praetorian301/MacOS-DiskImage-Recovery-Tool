@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>band-size</key>
+	<integer>8388608</integer>
+	<key>bundle-backingstore-version</key>
+	<integer>2</integer>
+	<key>diskimage-bundle-type</key>
+	<string>com.apple.diskimage.sparsebundle</string>
+	<key>size</key>
+	<integer>100020736</integer>
+	<key>uuid</key>
+	<string>10c66d69-45c0-44b9-b0c6-b740ea8f45a6</string>
+</dict>
+</plist>
