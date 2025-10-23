@@ -99,13 +99,13 @@ python3 cracker.py
 ```
 DiskImageRecoveryTool/
 │
-├── cracker.py             # main brute-force runner
+├── cracker.py 
 ├── README.md
 ├── sample-wordlist.txt
 ├── test.sparsebundle
 │
 └── helper-scripts/
-    └── (optional helper scripts)
+    └── 
 ```
 
 > Note: Your project may use slightly different filenames — adjust the layout above accordingly.
