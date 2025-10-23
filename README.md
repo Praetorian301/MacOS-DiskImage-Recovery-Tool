@@ -151,6 +151,5 @@ Only use lists you have legal permission to run against the target images.
 ## 👨‍💻 Credits & Contact
 
 Created by **[@Praetorian301](https://github.com/Praetorian301)**.
-If you find bugs or want to contribute, open an issue or a pull request.
 
 ---
