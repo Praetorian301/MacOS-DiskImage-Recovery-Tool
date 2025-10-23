@@ -97,15 +97,23 @@ python3 cracker.py
 ## 📂 Folder Layout
 
 ```
-DiskImageRecoveryTool/
+MacOS-DiskImage-Recovery-Tool/
 │
-├── cracker.py 
+├── .gitattributes
 ├── README.md
-├── sample-wordlist.txt
-├── test.sparsebundle
 │
-└── helper-scripts/
-    └── 
+└── DiskImageCrackerMacOS/
+    ├── cracker.py
+    ├── Instructions.txt
+    ├── test.dmg
+    ├── test.txt
+    ├── testTwo.txt
+    │
+    └── test.sparsebundle/
+        ├── Info.bckup
+        ├── Info.plist
+        ├── lock
+        └── token
 ```
 
 > Note: Your project may use slightly different filenames — adjust the layout above accordingly.
