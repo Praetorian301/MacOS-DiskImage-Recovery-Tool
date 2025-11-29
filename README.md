@@ -1,6 +1,6 @@
 # Disk Image & Sparsebundle Recovery Tool
 
-A lightweight macOS utility written in **Python** that attempts to unlock macOS disk images (`*.sparsebundle`, `*.dmg`, `*.sparseimage`) by trying candidate passwords from plain `.txt` wordlist files. This tool is intended for **legitimate data recovery** and **authorized digital-forensics** work when an image’s password has been forgotten.
+A lightweight **macOS utility** written in **Python** that attempts to unlock **macOS disk images** (`*.sparsebundle`, `*.dmg`, `*.sparseimage`) by trying candidate passwords from plain `.txt` wordlist files. This tool is intended for **legitimate data recovery** and **authorized digital-forensics** work when an image’s password has been forgotten.
 
 The tool automates `hdiutil attach` attempts, provides a live progress dashboard, and includes helper commands to avoid attach/detach conflicts. Recovery time varies with wordlist size and hardware — small lists can finish in a few hours, while large lists may take much longer.
 
