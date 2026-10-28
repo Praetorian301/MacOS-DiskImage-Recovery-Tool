@@ -132,7 +132,7 @@ MacOS-DiskImage-Recovery-Tool/
 ## 📚 Wordlists
 
 Recommended public sources for legal wordlists:
-
+* [https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.html] (included already)
 * [SecLists (GitHub)](https://github.com/danielmiessler/SecLists)
 * [Weakpass](https://weakpass.com)
 
