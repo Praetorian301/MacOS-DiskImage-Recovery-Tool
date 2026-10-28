@@ -1,8 +1,10 @@
 # Disk Image & Sparsebundle Recovery Tool
 
-A lightweight **macOS utility** written in **Python** that attempts to unlock **macOS disk images** (`*.sparsebundle`, `*.dmg`, `*.sparseimage`) by trying candidate passwords from plain `.txt` wordlist files. This tool is intended for **legitimate data recovery** and **authorised digital forensics** when an image's password has been forgotten.
+**Forgotten the password to your encrypted macOS disk image?**
 
-The tool automates `hdiutil attach` attempts, provides a live progress dashboard, and includes helper commands to avoid attachment and detachment conflicts. Recovery time varies depending on wordlist size, hardware and encryption complexity.
+This lightweight **macOS utility**, written in **Python**, helps recover access to encrypted disk images (`*.sparsebundle`, `*.dmg`, `*.sparseimage`) by testing candidate passwords from plain `.txt` wordlist files. Designed for **legitimate data recovery** and **authorised digital forensics**, the tool offers a practical solution when a disk image's password has been forgotten.
+
+The script automates `hdiutil attach` attempts, provides a live progress dashboard displaying password attempts, checking speed and estimated completion time, and includes helper commands to reduce attachment and detachment conflicts. Recovery time varies depending on wordlist size, hardware performance and encryption complexity.
 
 ---
 
@@ -41,7 +43,7 @@ cd MacOS-DiskImage-Recovery-Tool/DiskImageCrackerMacOS
 * The included `human.txt` contains approximately 64 million passwords from CrackStation.
 * Additional dictionaries can be downloaded from CrackStation, SecLists and Weakpass. **Only use wordlists you are authorised to use.**
 
-**Requirements:** macOS, Python 3 and the `rich` Python package.
+**Requirements:** macOS, Python 3, Git LFS and the `rich` Python package.
 
 Install the required dependency:
 
@@ -73,8 +75,10 @@ From the `DiskImageCrackerMacOS` folder:
 
 ```bash
 chmod +x ./cracker.py
+
 # Optional: run 'clean' after checking mounted devices
 clean
+
 python3 cracker.py
 ```
 
@@ -104,12 +108,11 @@ Press **Enter** to select Mode 1 (Local Wordlists), then follow the prompts to b
 
 * **No supported disk images found:** Verify that `.sparsebundle`, `.dmg` or `.sparseimage` files are in the same folder as `cracker.py`.
 * **No wordlists detected:** Ensure your password dictionaries use the `.txt` extension and are in the current directory.
-* **`full.lst` not detected:** Rename the dictionary to `full.txt`, as the current script only recognises `.txt` files.
+* **`full.txt` not detected:** Ensure the dictionary is named `full.txt` and is located in the same directory as `cracker.py`.
 * **Missing `rich` module:** Run `python3 -m pip install rich`.
 * **Git LFS dictionary missing:** Run `git lfs pull` from the repository root.
 * **`clean` prints nothing:** No matching mounted disk devices were found.
 * **Device won't detach:** Check which process is using the disk image, then manually detach the appropriate device using `hdiutil detach /dev/diskN`.
-* **Long recovery times:** Large dictionaries may take considerable time to process. Try smaller, more targeted wordlists first.
 * **`hdiutil` unavailable:** The utility requires macOS and cannot run natively on Windows.
 
 ---
@@ -128,7 +131,7 @@ MacOS-DiskImage-Recovery-Tool/
     ├── Instructions.txt
     │
     ├── human.txt
-    ├── full.lst              (Optional, local only)
+    ├── full.txt              (Optional, local only)
     │
     ├── test.dmg
     ├── test.txt
@@ -141,7 +144,7 @@ MacOS-DiskImage-Recovery-Tool/
         └── token
 ```
 
-> Note: The `human.txt` dictionary is included through Git LFS. The larger `full.lst` dictionary must be downloaded separately and renamed to `full.txt` for use with the current script. Your project may use slightly different filenames.
+> Note: The `human.txt` dictionary is included through Git LFS. The larger `full.txt` dictionary must be downloaded separately and placed in the same directory as `cracker.py`. Your project may use slightly different filenames.
 
 ---
 
@@ -149,12 +152,12 @@ MacOS-DiskImage-Recovery-Tool/
 
 The repository includes CrackStation's **Human Passwords Only** dictionary (`human.txt`), containing approximately 64 million real passwords collected from historical website database breaches.
 
-The full CrackStation dictionary (`full.lst`) contains approximately 1.49 billion entries sourced from password leaks, dictionaries, Wikipedia and other public text collections. It is available separately due to its large file size.
+The full CrackStation dictionary (`full.txt`) contains approximately 1.49 billion entries sourced from password leaks, dictionaries, Wikipedia and other public text collections. It is available separately due to its large file size.
 
 | Dictionary | Entries | Uncompressed Size | Availability |
 |---|---|---|---|
 | `human.txt` | ~64 million | 684 MiB | Included via Git LFS |
-| `full.lst` | ~1.49 billion | 15 GiB | Download separately |
+| `full.txt` | ~1.49 billion | 15 GiB | Download separately |
 
 **Recommended public wordlist sources:**
 
@@ -162,7 +165,7 @@ The full CrackStation dictionary (`full.lst`) contains approximately 1.49 billio
 * [SecLists (GitHub)](https://github.com/danielmiessler/SecLists)
 * [Weakpass](https://weakpass.com/)
 
-**Note:** The script currently detects `.txt` files only. Rename `full.lst` to `full.txt` before using it.
+**Note:** The script automatically detects `.txt` wordlists, including `human.txt` and `full.txt`, when placed in the same directory as `cracker.py`.
 
 CrackStation dictionaries are licensed under [Creative Commons Attribution ShareAlike 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
 
